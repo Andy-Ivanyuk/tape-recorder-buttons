@@ -1,0 +1,73 @@
+:root {
+  --background_color: rgb(225, 225, 225);
+  --border_color: rgb(71, 72, 76);
+  --border_color-light: rgb(179, 179, 179);
+  --border_color-lightest: rgb(250, 239, 243);
+  --button_color: rgb(222, 218, 206);
+  --light-circle: radial-gradient(
+    circle at 50% 90%,
+    rgba(255, 255, 255, 0.3) 5%,
+    rgba(0, 0, 0, 0) 30%
+  );
+  --button_dimention_gradient: radial-gradient(
+      circle at 50% 110%,
+      rgba(255, 255, 255, 0.4) 20%,
+      rgba(0, 0, 0, 0.4) 80%
+    ),
+    var(--light-circle);
+  --button_dimention_gradient-active: radial-gradient(
+      circle at 50% 100%,
+      rgba(255, 255, 255, 0.4) 20%,
+      rgba(0, 0, 0, 0.4) 100%
+    ),
+    radial-gradient(
+      circle at 50% 95%,
+      rgba(255, 255, 255, 0.3) 10%,
+      rgba(0, 0, 0, 0) 30%
+    );
+  --border_dimention_gradient-top: radial-gradient(
+    circle at 50% 52%,
+    rgba(0, 0, 0, 0) 69%,
+    rgb(255, 255, 255, 0.7) 70%
+  );
+  --border_dimention_gradient-bottom: radial-gradient(
+    circle at 50% 48%,
+    rgba(0, 0, 0, 0) 69%,
+    rgb(0, 0, 0, 0.7) 70%
+  );
+  --wrapper_gradient: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  --shadow: 0px 10px 8px -2px rgba(0, 0, 0, 0.5),
+    0px 25px 15px -8px rgba(0, 0, 0, 0.2);
+  --wrapper-size: 6px;
+}
+
+body {
+  background-color: var(--background_color);
+}
+
+.shadow {
+  transition: box-shadow, -moz-box-shadow, -webkit-box-shadow 0.1s ease-out;
+  -webkit-transitions: box-shadow, -moz-box-shadow,
+    -webkit-box-shadow 0.1s ease-out;
+  -webkit-box-shadow: var(--shadow);
+  -moz-box-shadow: var(--shadow);
+  box-shadow: var(--shadow);
+}
+
+.wrapper_border {
+  margin: 5px;
+  display: inline-block;
+}
+
+.wrapper_border::after {
+  position: absolute;
+  content: "";
+  background: var(--wrapper_gradient);
+  margin-left: calc(-1 * var(--wrapper-size));
+  margin-top: calc(-1 * var(--wrapper-size));
+  z-index: -1;
+}

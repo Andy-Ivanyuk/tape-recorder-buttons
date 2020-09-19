@@ -1,0 +1,87 @@
+.switch {
+  --width: 60px;
+  --height: 100px;
+  --switch-color: rgb(185, 45, 9);
+  --switch-off-color: rgb(206, 55, 0);
+  --checkmark-color: rgb(250, 132, 104);
+  --checkmark-size: 10px;
+  --switch-border-color: rgba(255, 255, 255, 0.7);
+  --switch-led-on-color: rgb(255, 51, 0, 0.8);
+  --square-switch-side-lines: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.7) 3%,
+    rgba(0, 0, 0, 0) 3%,
+    rgba(0, 0, 0, 0) 97%,
+    rgba(255, 255, 255, 0.7) 97%
+  );
+}
+
+.switch {
+  cursor: pointer;
+  width: var(--width);
+  height: var(--height);
+  border: 1px solid black;
+  background-image: var(--square-switch-side-lines);
+  background-color: var(--switch-color);
+}
+
+.switch.wrapper_border::after {
+  width: var(--width);
+  height: var(--height);
+  border-radius: 4px;
+  padding: var(--wrapper-size);
+}
+
+.switch > .checkmark {
+  position: absolute;
+  background-image: var(--square-switch-side-lines),
+    radial-gradient(
+      at center,
+      var(--switch-border-color) 30%,
+      var(--checkmark-color) 110%
+    );
+  width: var(--width);
+  height: var(--checkmark-size);
+  border-bottom: 1px solid var(--switch-border-color);
+}
+
+.switch > .checkmark::after {
+  content: "";
+  position: absolute;
+  width: var(--width);
+  height: calc(var(--height) / 2);
+  margin-top: calc(var(--height) / 2);
+  background-image: radial-gradient(
+    at center,
+    var(--switch-off-color) 20%,
+    #00000000 70%
+  );
+}
+
+.switch.wrapper_border input:checked ~ .checkmark {
+  border-top: 1px solid var(--switch-border-color);
+  border-bottom: none;
+  transform: translateY(calc(var(--height) - var(--checkmark-size)));
+  background-image: radial-gradient(
+    at center,
+    var(--switch-off-color) 20%,
+    #00000000 70%
+  );
+}
+
+.switch.wrapper_border input:checked ~ .checkmark::after {
+  margin-top: calc(var(--height) / -2);
+  box-shadow: 0px -5px 15px 2px var(--switch-led-on-color);
+  background-image: radial-gradient(
+      circle at 50% 20%,
+      var(--switch-led-on-color) 15%,
+      #00000000 45%
+    ),
+    var(--light-circle);
+  height: var(--height);
+  margin-top: calc(var(--height) / -1 + var(--checkmark-size));
+}
+
+.switch > input {
+  display: none;
+}

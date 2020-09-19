@@ -1,0 +1,33 @@
+.round {
+  --round-size: 100px;
+}
+
+.button.round.shadow:active {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.button.round:active {
+  background-image: var(--button_dimention_gradient-active),
+    var(--border_dimention_gradient-top),
+    var(--border_dimention_gradient-bottom);
+}
+
+.button.round {
+  width: var(--round-size);
+  height: var(--round-size);
+  border-radius: 50%;
+  border: 1px solid var(--border_color);
+  background-color: var(--button_color);
+  background-image: var(--button_dimention_gradient),
+    var(--border_dimention_gradient-top),
+    var(--border_dimention_gradient-bottom);
+}
+
+.button.round.wrapper_border::after {
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  padding: var(--wrapper-size);
+}
