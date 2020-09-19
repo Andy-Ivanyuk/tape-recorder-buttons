@@ -2,6 +2,10 @@
   --round-size: 100px;
 }
 
+.button {
+  cursor: pointer;
+}
+
 .button.round.shadow:active {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
